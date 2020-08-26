@@ -62,6 +62,7 @@
 	height: 40px;
 	outline: none;
 	border: 1px solid #DCDCDC;
+	box-sizing: border-box;
 }
 .nav-content input:hover{
 	border: 1px solid red;
@@ -167,14 +168,15 @@
 	height: 100%;
 	background-color: #85809D;
 	display: inline-block;
-	opacity:0.5;
+	/* opacity:0.5; */
+	background:rgba(152,149,152,0.5);
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 1000;
 }
 
-.left a{
+.left .slider-li a{
 	text-decoration: none;
 	color: #F9F9FA;
 	font-weight: 400;
@@ -187,7 +189,7 @@
 	/* padding-left: 30px; */
 	list-style: none;
 }
-.left-ul li{
+.left-ul .slider-li{
 	width: 12.8125rem;
 	line-height: 40px;
 	box-sizing:border-box;
@@ -198,21 +200,68 @@
 .left-ul li:last-child{
 	padding-bottom:20px;
 }
-.left-ul li a{
+.left-ul .slider-li a{
 	padding-left: 30px;
 	display: inline-block;
 	width: 100%;
 	position: relative;
 }
-.left-ul li a span:last-child{
+.left-ul .slider-li .rightspan{
 	position: absolute;
 	right: 25px;
 	font-size: 20px;
 	font-weight: 800;
 }
-.left-ul a:hover{
+.left-ul .slider-li > a:hover{
 	background: #E2902E;
 }
+
+/* 鼠标经过时弹出 */
+.slider-li:hover .hover-div{
+	display: block;
+	opacity: 1;
+}
+
+.slider-li .hover-div{
+	width: 1072px;
+	height: 100%;
+	border: 1px solid #DCDCDC;
+	position: absolute;
+	left: 235px;
+	top: 0px;
+	background-color: white;
+	z-index: 1001;
+	box-sizing: border-box;
+	display: none;
+}
+
+.slider-li .hover-div ul{
+	list-style: none;
+	/* white-space: normal; */
+	word-wrap: break-word;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	flex-flow: wrap;  /* 超出宽度自动换行*/
+}
+.slider-li .hover-div ul li{
+	line-height: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 35px;
+	font-size: 12px;
+	float: left;
+}
+.slider-li .hover-div ul li a{
+	text-decoration: none;
+	color: black;
+}
+.slider-li .hover-div ul li img{
+	height: 40px;
+	line-height: 40px;
+}
+
 
 /* 右侧轮播图 */
 .rotationImag{
@@ -246,12 +295,12 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	opacity: 1;
+	opacity: 0;
 	transition-property: opacity;
 	transition-duration: 1s;
 }
 .active{/* 控制轮播图的显示 */
-	opacity: 1;
+	/* opacity: 1; */
 	z-index: 999;
 }
 .rotationImag .swiper-slider a img{
@@ -303,6 +352,29 @@
 	border-radius: 3px 0 0 3px;
 	border: none;
 }
+/* 圆点导航 */
+.swiper-slider .dot-div{
+	position: absolute;
+	right: 25px;
+	top: 210px;
+	height: 15px;
+	opacity: 0.3;
+	transition-property: opacity;
+	transition: 1s;
+	z-index: 999;
+}
+.swiper-slider .dot-div:hover{
+	opacity: 1;
+}
+.swiper-slider .dot-div a{
+	height: 8px;
+	width: 8px;
+	margin-right: 6px;
+	display: inline-block;
+	border: 2px solid #939294;
+	border-radius: 50%;
+	background-color: #4D4D50;
+}
 
 /* 首页图片bar */
 .home-sub-bar{
@@ -329,22 +401,56 @@
 	width: 234px;
 	height: 170px;
 	display: inline-block;
-	border: 1px solid black;
+	background-color: #554F48;
 }
-
+.home-channel-list-ul .firstli .fonticon{
+	list-style: none;
+	align-content: center;
+	width: 234px;
+	overflow: hidden;
+	/* display: flex; */
+}
+.home-channel-list-ul .firstli .fonticon li{
+	font-size: 10px;
+	color: white;
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin: 15px 12px;
+	color: #BFBDBA;
+}
+.home-channel-list-ul .firstli .fonticon li img{
+	width: 25px;
+	height: 25px;
+	margin-left: 12.5px;
+}
+.home-channel-list-ul .firstli .fonticon li a{
+	text-decoration: none;
+	color: #BFBDBA;
+}
+.home-channel-list-ul .firstli .fonticon li a:hover p{
+	color: white;
+}
+.home-channel-list-ul .firstli .fonticon li p{
+	text-align: center;
+	color: #BFBDBA;
+}
 .home-channel-list-ul li:nth-child(2){
 	width: 316px;
 	height: 100%;
-	border: 1px solid red;
 }
 .home-channel-list-ul li:nth-child(3){
 	width: 316px;
 	height: 100%;
-	border: 1px solid red;
 }
 .home-channel-list-ul li:nth-child(4){
 	width: 316px;
 	height: 100%;
-	border: 1px solid red;
 }
-
+.home-channel-list-ul img{
+	width: 100%;
+	height: 170px;
+}
+/* .home-channel-list-ul .firstli .fonticon img{
+	background-color: #554F48;
+} */
